@@ -34,8 +34,8 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-    <!-- Preloader -->
-<!--  <div class="preloader flex-column justify-content-center align-items-center">
+<!--     Preloader
+  <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="{{asset('img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
   </div>-->
 
@@ -184,7 +184,7 @@
         <a href="index3.html" class="brand-link">
             <img src="{{asset('img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
+            <span class="brand-text font-weight-light">{{ config('app.name', 'Laravel') }}</span>
         </a>
 
         <!-- Sidebar -->
@@ -229,20 +229,8 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="index.blade.php" class="nav-link active">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="far fa-circle nav-icon text-primary"></i>
                                     <p>Dashboard v1</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="index2.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Dashboard v2</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="index3.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Dashboard v3</p>
                                 </a>
                             </li>
                         </ul>
@@ -319,12 +307,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/gallery.html" class="nav-link">
-                            <i class="nav-icon far fa-image"></i>
-                            <p>
-                                Gallery
-                            </p>
+                        <a class="nav-link" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            <i class="nav-icon fas fa-sign-out-alt text-danger"></i>
+                            <p>{{ __('Logout') }}</p>
                         </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
