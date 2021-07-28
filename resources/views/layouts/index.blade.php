@@ -247,14 +247,30 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{--{{route('products.index')}}--}}" class="nav-link">
+                        <a href="{{route('products.index')}}" class="nav-link">
                             <i class="nav-icon far fa-list-alt text-info"></i>
                             <p>
                                 Products
-<!--                                <span class="badge badge-info right">2</span>-->
+                                <!--                                <span class="badge badge-info right">2</span>-->
+                                <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            @foreach(\App\Models\Category::categoriesList() as $category)
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>{{$category->name}}</p>
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
                     </li>
+
+
+
+
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
@@ -407,7 +423,7 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
+    <footer class="main-footer fixed-bottom">
         <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">

@@ -20,5 +20,9 @@ Route::get('/index', function () {
     return view('layouts.index');
 });
 Auth::routes();
-
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('products.')->group(function () {
+        Route::resource('products',\App\Http\Controllers\ProductController::class);
+    });
+});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
