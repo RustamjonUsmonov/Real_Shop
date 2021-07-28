@@ -16,9 +16,4 @@ class Category extends Model
     {
         return $this->hasMany(Product::class);
     }
-
-    public static function categoriesList()
-    {
-        return Category::get('name');
-    }
 }

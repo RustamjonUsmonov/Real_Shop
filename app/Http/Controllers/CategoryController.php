@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $catedories=Category::select('name')->paginate(20);
+        $catedories=Category::get('name','id');
         return view('products.index',compact('catedories'));
     }
 
@@ -48,9 +48,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id): \Illuminate\Http\Response
     {
-        //
+        return view('category.single',Category::findOrFail($id));
     }
 
     /**
@@ -87,4 +87,8 @@ class CategoryController extends Controller
         //
     }
 
+    public static function categoriesList()
+    {
+        return $category=Category::all();
+    }
 }

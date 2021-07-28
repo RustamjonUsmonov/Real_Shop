@@ -29,7 +29,7 @@
             overflow-y: scroll;
         }
 
-        </style>
+    </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -247,28 +247,30 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{route('products.index')}}" class="nav-link">
+                        <a href="{{route('products.index')}}" class="nav-link  ">
                             <i class="nav-icon far fa-list-alt text-info"></i>
                             <p>
                                 Products
-                                <!--                                <span class="badge badge-info right">2</span>-->
+                                <span class="mr-5 badge badge-info right">{{\App\Models\Product::sales()}}</span>
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            @foreach(\App\Models\Category::categoriesList() as $category)
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{{ route('products.index') }}" class="nav-link @if(\Request::is('products')) active @endif">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>{{$category->name}}</p>
+                                    <p>All Products</p>
                                 </a>
                             </li>
+                            @foreach(\App\Http\Controllers\CategoryController::categoriesList() as $category)
+                                <li class="nav-item">
+                                    <a href="{{ route('category.show',$category->id) }}" class="nav-link">                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>{{$category->name}}</p>
+                                    </a>
+                                </li>
                             @endforeach
                         </ul>
                     </li>
-
-
-
 
 
                     <li class="nav-item">
@@ -305,7 +307,7 @@
                             </li>
                         </ul>
                     </li>
-                 <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+                    <li class="nav-header">MULTI LEVEL EXAMPLE</li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="fas fa-circle nav-icon"></i>
@@ -415,7 +417,6 @@
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
-
         <!-- Main content -->
         <section class="content">
             @yield('content')

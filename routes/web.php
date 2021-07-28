@@ -21,8 +21,7 @@ Route::get('/index', function () {
 });
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
-    Route::prefix('products.')->group(function () {
         Route::resource('products',\App\Http\Controllers\ProductController::class);
-    });
+        Route::resource('category',\App\Http\Controllers\CategoryController::class);
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

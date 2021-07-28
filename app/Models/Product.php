@@ -10,4 +10,9 @@ class Product extends Model
     use HasFactory;
     protected $table='products';
     protected $fillable=['name','descr','price','sale'];
+
+    public static function sales(): int
+    {
+        return Product::where('sale',1)->count();
+    }
 }

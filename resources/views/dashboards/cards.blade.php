@@ -12,7 +12,7 @@
                 <h5 class="fw-bolder">{{$products->name}}</h5>
                 <p>{{substr($products->descr,0,100).'...'}} </p>
                 <!-- Product price-->
-                <span class="badge badge-warning font-weight-bold"><h4>${{$products->price}}</h4></span>
+                <span class="badge badge-warning font-weight-bold"><h4>${{round($products->price/100,2)}}</h4></span>
             </div>
         </div>
         <!-- Product actions-->
