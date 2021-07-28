@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->float('price');
             $table->text('descr');
             $table->boolean('sale');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

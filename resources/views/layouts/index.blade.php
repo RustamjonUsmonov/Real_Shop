@@ -218,7 +218,7 @@
                     data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                    <li class="nav-item menu-open">
+<!--                    <li class="nav-item menu-open">
                         <a href="#" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
@@ -234,8 +234,8 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
-                    <li class="nav-header">EXAMPLES</li>
+                    </li>-->
+                    <li class="nav-header">MENU</li>
                     <li class="nav-item">
                         <a href="pages/calendar.html" class="nav-link">
                             <i class="nav-icon far fa-calendar-alt"></i>
@@ -246,9 +246,9 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="{{route('products.index')}}" class="nav-link  ">
-                            <i class="nav-icon far fa-list-alt text-info"></i>
+                    <li class="nav-item @if(\Request::is('products')) menu-open @endif">
+                        <a href="{{route('products.index')}}" class="nav-link @if(\Request::is('products')) active @endif">
+                            <i class="nav-icon far fa-list-alt"></i>
                             <p>
                                 Products
                                 <span class="mr-5 badge badge-info right">{{\App\Models\Product::sales()}}</span>
@@ -258,7 +258,7 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{ route('products.index') }}" class="nav-link @if(\Request::is('products')) active @endif">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="far fa-circle nav-icon @if(\Request::is('products')) text-primary @endif"></i>
                                     <p>All Products</p>
                                 </a>
                             </li>
@@ -307,7 +307,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+<!--                    <li class="nav-header">MULTI LEVEL EXAMPLE</li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="fas fa-circle nav-icon"></i>
@@ -371,7 +371,7 @@
                             <i class="fas fa-circle nav-icon"></i>
                             <p>Level 1</p>
                         </a>
-                    </li>
+                    </li>-->
                     <li class="nav-header">LABELS</li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">

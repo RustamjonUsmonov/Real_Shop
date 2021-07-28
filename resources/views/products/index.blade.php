@@ -7,6 +7,7 @@
             </div>
         </div>
     </section>
-    <style scoped> .pagination { justify-content: center!important; } </style>
-    {{$products->links()}}
+    <style scoped> .pagination { justify-content: center!important; margin-bottom: 100px !important;} </style>
+    <div class="mb-5">
+    {{$products->links()}}</div>
 @endsection
